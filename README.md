@@ -7,8 +7,9 @@ Las credenciales por defecto para entrar en la Aplicación son:
 <br>
 <b>contra</b> - 1234
 
-user - admin
-password - 1234
+<b>user</b> - admin
+<br>
+<b>password</b> - 1234
 # Tutorial
 La aplicación además, cuenta con una ayuda mediante sistema JAVAHELP (pulsar F1 durante su ejecución), y videotutorial online:
 https://youtu.be/aHuiUsOaAnk
