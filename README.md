@@ -3,8 +3,9 @@ Aplicación escrita en JAVA que, a través de un Controlador para la BBDD MySQL,
 # LOGIN
 Las credenciales por defecto para entrar en la Aplicación son:
 <br>
-<b>usuario</b> - admin
-<b>contra - 1234</b>
+<b>usuario</b> - admin 
+<br>
+<b>contra</b> - 1234
 
 user - admin
 password - 1234
