@@ -2,8 +2,9 @@
 Aplicación escrita en JAVA que, a través de un Controlador para la BBDD MySQL, gestionará palículas y Entradas para dichas películas.
 # LOGIN
 Las credenciales por defecto para entrar en la Aplicación son:
-usuario - admin
-contra - 1234
+<br>
+<b>usuario</b> - admin
+<b>contra - 1234</b>
 
 user - admin
 password - 1234
