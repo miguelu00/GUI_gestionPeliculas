@@ -58,15 +58,11 @@ public class ControladorPeliculas {
                 aux = p;
             }
         }
-        sustituirPeliEnLista(aux, pelicula);
+        ControladorBBDD_mysql.hacerUPDATE("peliculas", new String[]{"titulo", pelicula.getTitulo(), "fechaEstreno", pelicula.getFechaEstreno(),
+            "genero", pelicula.getGenero(), "anio", String.valueOf(pelicula.getAnio())}, new String[]{"codPelicula", String.valueOf(pelicula.getCodPelicula())});
         
         actualizarListaDesdeBBDD();
         return pelicula;
-    }
-    
-    private static void sustituirPeliEnLista(Pelicula vieja, Pelicula nueva) {
-        listaPeliculas.remove(vieja);
-        listaPeliculas.add(nueva);
     }
     
     public static Pelicula getPeliculaByCodPelicula(int codPelicula) {
@@ -77,6 +73,7 @@ public class ControladorPeliculas {
             while (rs.next()) {
                 peli = new Pelicula();
                 peli.setCodPelicula(rs.getInt("codPelicula"));
+                peli.setGenero(rs.getString("genero"));
                 peli.setTitulo(rs.getString("titulo"));
                 peli.setFechaEstreno(rs.getString("fechaEstreno"));
                 peli.setAnio(rs.getInt("anio"));
@@ -105,10 +102,10 @@ public class ControladorPeliculas {
                 encontrada = p;
             }
         }
-        listaPeliculas.remove(encontrada);
         boolean hecho = ControladorBBDD_mysql.hacerDELETE("peliculas", "codPelicula", String.valueOf(codPelicula));
         if (hecho) {
             actualizarListaDesdeBBDD();
+            listaPeliculas.remove(encontrada);
             return encontrada;
         }
         return null;
