@@ -55,8 +55,8 @@ public class ModificarPelicula extends javax.swing.JDialog {
         initComponents();
         this.codPelicula = pelicula.getCodPelicula();
         rellenarDatosModifGUI();
-        this.setLocationRelativeTo(null);
         cargarAyudaJH();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -308,7 +308,9 @@ public class ModificarPelicula extends javax.swing.JDialog {
         
         Pelicula editada = ControladorPeliculas.editarPelicula(p);
         if (editada != null) {
-            Vistas.mostrarMensajeGUI(rootPane, "COMPLETADO!", "La película " + p.getCodPelicula() + " se ha actualizado correctamente!");
+            Vistas.mostrarMensajeGUI(rootPane, "COMPLETADO!", "<html>"
+                    + "La película <b>" + p.getCodPelicula() + "- " + p.getTitulo() + "</b> se ha actualizado correctamente!"
+                            + "</html>");
             this.setVisible(false);
             this.dispose();
             return;
@@ -362,7 +364,7 @@ public class ModificarPelicula extends javax.swing.JDialog {
     
     public void rellenarDatosModifGUI() {
         if (codPelicula == -1) {
-            JOptionPane.showMessageDialog(this, "ERROR! NO SE HA SELECCIONADO NINGUNA PELICULA!");
+            Vistas.mostrarErrorGUI(rootPane, "NADA SELECCIONADO!", "ERROR! NO SE HA SELECCIONADO NINGUNA PELICULA!");
             return;
         }
         
